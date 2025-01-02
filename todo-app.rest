@@ -1,0 +1,46 @@
+### GET /
+GET http://localhost:5000
+
+### Register a user POST /AUTH/REGISTER
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username": "test@test.com",
+    "password": "qwerty123"
+}
+
+### Login a user POST /AUTH/LOGIN
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username": "test@test.com",
+    "password": "qwerty"
+}
+
+### Fetch all todos GET /TODOS (protected)
+GET http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM1NzQ1NDYxLCJleHAiOjE3MzU4MzE4NjF9.Dcb0vSOWyX8jn7gGsiV940mlAykdJc3MmWMx-UGqAgk
+
+### Creates a new todo POST /TODOS (protected)
+POST http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM1NzQ1NDYxLCJleHAiOjE3MzU4MzE4NjF9.Dcb0vSOWyX8jn7gGsiV940mlAykdJc3MmWMx-UGqAgk
+Content-Type: application/json 
+
+{
+    "task": "Hello :) You have your first todo"
+}
+
+### Update a todo PUT /TODOS/:ID (protected)
+PUT http://localhost:5000/todos/1?page=4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM1NzQ1NDYxLCJleHAiOjE3MzU4MzE4NjF9.Dcb0vSOWyX8jn7gGsiV940mlAykdJc3MmWMx-UGqAgk
+Content-Type: application/json
+
+{
+    "completed": 1
+}
+
+### Delete a todo DELETE /TODOS/:ID (protected)
+DELETE http://localhost:5000/todos/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM1NzQ1NDYxLCJleHAiOjE3MzU4MzE4NjF9.Dcb0vSOWyX8jn7gGsiV940mlAykdJc3MmWMx-UGqAgk
